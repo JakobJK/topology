@@ -10,7 +10,7 @@ Creating this resource was mainly motivated by the need to thoroughly explain a 
 
 ## Subdivision Modeling
 
-What Exactly is Subdivision Modeling! And blabla
+What Exactly is Subdivision Modeling
 
 ## All Quads
 

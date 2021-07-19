@@ -1,0 +1,29 @@
+---
+import Main from '../layout/Main.astro'
+import fetch from 'node-fetch'
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+const { YOUTUBE_API_KEY, YOUTUBE_CHANNEL_ID } = process.env
+const url = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&part=snippet,id&order=date&maxResults=50`
+
+
+const res = await fetch(url).then(res => res.json())
+
+
+
+
+---
+<Main>
+  <h1>
+    How to model
+  </h1>
+  <p>
+    Here's a handful of examples of complicated shapes
+    {res.items.map(x => {
+      console.log(x.snippet.thumbnails.standard)
+      return (x?.id?.kind === 'youtube#video') ? <img src={x.snippet.thumbnails.medium.url} /> : null
+    })}
+  </p>
+</Main>

@@ -1,0 +1,56 @@
+---
+const title = 'Topology'
+const nav = [
+  {url: '/', display: 'Topology'},
+  {url: 'modelChecker', display: 'modelChecker'},
+  {url: 'model', display: 'How to model this?'},
+  {url: 'coffee', display: 'Coffee'},
+]
+
+---
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>{title}</title>
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+      <link rel="stylesheet" href="/style/global.css">
+      <style>
+          body {
+            padding: 0px;
+            width: 100%;
+            min-height: 100vh;
+            background: #f9fafb;
+            color: #111827;
+          }
+          header {
+            padding-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+          }
+
+          main {
+            min-height: calc(100vh - 150px);
+            max-width: 50rem;
+          }
+          footer {
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            color: #999;
+          }
+      </style>
+  </head>
+  <body>
+      <header>
+        {nav.map(x => <a href={x.url}>{x.display}</a>)}
+      </header>
+      <main>
+          <slot />
+      </main>
+      <footer>
+      Copyright &copy; Jakob Kousholt 2021
+      </footer>
+  </body>
+</html>
